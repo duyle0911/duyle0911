@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách Vé</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; border: 1px solid #ccc; text-align: center; }
+        th { background-color: #f2f2f2; }
+        h2 { color: #333; }
+    </style>
+</head>
+<body>
+<h2>Danh sách Vé đã đặt</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Mã Vé</th>
+            <th>Tên Khách Hàng</th>
+            <th>Chuyến Bay</th>
+            <th>Giá Vé</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ve : ${danhSachVe}">
+            <td th:text="${ve.maVe}"></td>
+            <td th:text="${ve.tenKhachHang}"></td>
+            <td th:text="${ve.tenChuyenBay}"></td>
+            <td th:text="${#numbers.formatDecimal(ve.gia, 0, 'COMMA', 2, 'POINT')}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
